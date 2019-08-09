@@ -1,0 +1,106 @@
+#standard-name {
+    width: 30em;
+}
+
+.container {
+    background-color: #93b5b3;
+    /* background-color: #c8dad3; */
+    margin-left: 0;
+    box-shadow: 3;
+    position: fixed;
+}
+
+.container div{
+    display: flex;
+    align-items: center;
+}
+
+.container .head1{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: flex-end;
+}
+
+.container .head2{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: center;
+}
+
+.container .head3{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: flex-start;
+}
+
+.Content {
+    display:flex;
+    /* justify-self: center; */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 80px;
+}
+
+.first-row {
+    display: flex;
+}
+
+/* .material-icons md-48 {
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+} */
+
+.listStory .header{
+    display: flex;
+}
+
+.listStory div h4 a{
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+  color: black;
+  padding-right: 10px;
+  padding-left: 50%;
+}
+
+.Main {
+    background: #f2f6f5;
+    min-height: 1500px;
+}
+
+.material-icons.md-48 { 
+    font-size: 48px; 
+}
+
+.MuiContainer-root.container.MuiContainer-maxWidthLg {
+    max-width: 2150px;
+}
+
+.second-row {
+    margin-top: 30px;
+    height: 100px;
+    flex-wrap: wrap;
+  }
+
+.Section-Left {
+    display: flex;
+    width: 60%;
+}
+
+.Section-Right {
+    /* display: flex;   */
+    width: 20%;
+    position: fixed;
+    left: 55%;
+    top: 140px;
+}
+
+ 
+
+
+
+  

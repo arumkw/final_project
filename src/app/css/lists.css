@@ -1,0 +1,44 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .loading-gif {
+      align-content: center;
+    /* background-attachment: #f8f1f1; */
+    padding-top: 50%;
+    min-width: 500px;
+    /* width: 30%;
+    height: 30%; */
+  }
+
+  .lists-card {
+    /* margin: 10px;
+    padding: 10px; */
+    /* min-height: 540px; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10 px;
+  }
+  
+  .list-card {
+    background: white;
+    color: #085f63;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10% 5% 0.5% 0%;
+    padding: 10px 0px 10px 0px;
+    border: 1px solid #d7d1c9;
+  }
+
+  .face-image {
+      min-width: 100%;
+  }
+
+  .mini-profile{
+      display: flex;
+      padding:0px;
+      margin: 0px;
+  }

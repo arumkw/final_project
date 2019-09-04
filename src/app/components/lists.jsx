@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 
   
 
-const Lists = ({maping}) => {
+const Lists = ({maping, dispatchhehe}) => {
 
     const imagesPath = {
         kosong: "images/baseline_favorite_border_black_18dp.png",
@@ -25,9 +25,11 @@ const Lists = ({maping}) => {
     const [state1, setstate1] = useState(true)
 
     const toogleImage = () => {
-        setstate1(!state1)
-        console.log(state1)
-        console.log('lawannya ',!state1)
+            setstate1(!state1)
+            console.log(state1)
+            console.log('lawannya ',!state1)
+            console.log(this.id)
+            //dispatch komponen
     }
 
     const getImageName = () => state1 ? 'kosong' : 'isi'
@@ -46,6 +48,7 @@ const Lists = ({maping}) => {
         <div className='lists-card'>
             {maping.map((item, idx) => {
                 return (
+                    //contoh dispatchHehe(item)
                     <div key={idx} className='list-card'>
                         <div className='mini-profile'>
                             <Avatar alt="Avatar" src={item.profile_picture} className={classes.avatar} />
@@ -54,13 +57,13 @@ const Lists = ({maping}) => {
                         <hr />
                         <img className='face-image' src={item.recent_post} alt=""/>
                         <div>
-                            <img style={{maxWidth: '40px', margin:'0px'}} src={imagesPath[getImageName()]} onClick={()=>toogleImage()}/>
+                            <img id={item.id} style={{maxWidth: '40px', margin:'0px', marginLeft:'15px'}} src={imagesPath[getImageName()]} onClick={()=>toogleImage()}/>
                         </div>
 
                         {/* <i className="material-icons md-48" onClick={()=>toogleImage()}>favorite</i> */}
 
-                        <div>Liked by {item.gender}<br /><br /></div>
-                        <div>{item.userName} {item.eye_color}<br /><br /></div>
+                        <div className='detail_text'><b>Liked by {item.liked}</b><br /></div>
+                        <div className='detail_text'><b>{item.userName}</b> {item.caption}<br /><br /></div>
                         {/* <ButtonCustom
                             color='#801336'
                             value={'View'}

@@ -1,0 +1,37 @@
+.big_avatar {
+    width: 200;
+    height: 200;
+    margin-top: 100px;
+}
+
+.detailProfile{
+    display: block;
+    background: #f2f6f5;
+    min-height: 1500px;
+}
+
+.profile {
+    display:flex;
+}
+
+.text_detail {
+    margin-top: 130px;
+    margin-left: 70px;
+}
+
+.username {
+    font-size: 24pt;
+    margin: 0;
+}
+
+.line_username {
+    display: flex;
+}
+
+#full-name, #status {
+    margin:0;
+}
+
+.MuiTabs-scroller MuiTabs-fixed, .MuiTabs-flexContainer MuiTabs-centered{
+    background-color: red;
+}

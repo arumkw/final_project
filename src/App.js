@@ -4,6 +4,7 @@ import './index.css';
 import Main from './app/screen/main';
 import Login from './app/screen/login';
 import Coba from './app/screen/cobacoba';
+import DetailProfile from './app/screen/detailProfile';
 // import Popup from './app/component/popup'
 
 export default class App extends React.Component {
@@ -39,13 +40,16 @@ export default class App extends React.Component {
                         <Route path="/Main" component={Main} />
                         {/* <Route path="/Coba" component={() => <Popup title='LOGIN FAILED' content='Sorry, your username is not registered' /> } /> */}
                         <Route path="/Coba" component={Coba} />
+                        <Route path="/Profile" component={DetailProfile} />
+                        
                         <Route path="/Main" render={() => (
-                        this.state.loggedIn ? (
-                        <Redirect to="/Main"/>
-                        ) : (
-                            <Redirect to="/"/>
-                        )
-                        )}/>
+                            this.state.loggedIn ?
+                            (
+                                <Redirect to="/Main"/>
+                            ) : (
+                                <Redirect to="/"/>
+                            )
+                        )} />
                         {/* <Login exact kirimloggedIn={(e) => this.handleLoggedIn(e)} /> */}
                     </div>
                 </Router>

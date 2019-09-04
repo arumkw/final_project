@@ -26,7 +26,7 @@ export default function Header () {
       };
       
     return (
-        <div className='oye'>
+        // <div className='oye'>
             <Container className='container'>
                 <div>
                     <div className='head1'>
@@ -51,6 +51,6 @@ export default function Header () {
                     </div>
                 </div>
             </Container>
-        </div>
+        // {/* </div> */}
     );
 }

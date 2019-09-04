@@ -41,43 +41,53 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ListsSuggestions() {
+export default function ListsSuggestions({maping}) {
   const classes = useStyles();
 
-  return (
-      <div className='listSuggestion'>
-          <div className={classes.header}>
-            <h5>Suggestions For You<a href="https://www.instagram.com">See All</a></h5>           
-          </div>
-        <List className={classes.root}>
-        <ListItem className={classes.listitem}>
-            <ListItemAvatar >
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
-            </ListItemAvatar>
-            <ListItemText primary={<b>yunaandco</b>} secondary="1 Day Ago" />
-            <ListItemSecondaryAction>
-              <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
-            </ListItemSecondaryAction>
-        </ListItem>
-        <ListItem className={classes.listitem}>
-            <ListItemAvatar>
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
-            </ListItemAvatar>
-            <ListItemText primary={<b>sararobert</b>} secondary="2 Days Ago" />
-            <ListItemSecondaryAction>
-              <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
-            </ListItemSecondaryAction>
-        </ListItem>
-        <ListItem className={classes.listitem}>
-            <ListItemAvatar>
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />
-            </ListItemAvatar>
-            <ListItemText primary={<b>rashawl</b>} secondary="7 Days Ago" />
-            <ListItemSecondaryAction>
-              <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
-            </ListItemSecondaryAction>
-        </ListItem>
-        </List>
-    </div>
-  );
+  if (maping.length === 0){
+    return (
+        <div className='loading'>
+            {/* <img className='loading-gif' src='https://kuis.football5star.com/images/ajax4.gif' alt=""/> */}
+            {/* <img className='loading-gif' src='https://media.giphy.com/media/l4pTovXEp3vC1YBvW/giphy.gif' alt=""/> */}
+            <h2> Please wait...</h2>
+        </div>
+    )
+} else {
+    return (
+        <div className='listSuggestion'>
+            <div className={classes.header}>
+                <h5>Suggestions For You<a href="https://www.instagram.com">See All</a></h5>           
+            </div>
+            <List className={classes.root}>
+            <ListItem className={classes.listitem}>
+                <ListItemAvatar >
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
+                </ListItemAvatar>
+                <ListItemText primary={<b>yunaandco</b>} secondary="1 Day Ago" />
+                <ListItemSecondaryAction>
+                <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
+                </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem className={classes.listitem}>
+                <ListItemAvatar>
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
+                </ListItemAvatar>
+                <ListItemText primary={<b>sararobert</b>} secondary="2 Days Ago" />
+                <ListItemSecondaryAction>
+                <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
+                </ListItemSecondaryAction>
+            </ListItem>
+            <ListItem className={classes.listitem}>
+                <ListItemAvatar>
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />
+                </ListItemAvatar>
+                <ListItemText primary={<b>rashawl</b>} secondary="7 Days Ago" />
+                <ListItemSecondaryAction>
+                <a href="www.instagram.com" style={{textDecoration:'none'}}>follow</a>
+                </ListItemSecondaryAction>
+            </ListItem>
+            </List>
+        </div>
+    );
+}
 }

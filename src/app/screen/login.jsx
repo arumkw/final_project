@@ -70,12 +70,14 @@ export default function Login ({kirimloggedIn}) {
             <div className='login-center'>
                 <img src="https://s3.gifyu.com/images/logo_facegram.png" alt=""></img>
                 <Box
+                    id='test'
                     boxShadow={3}
                     bgcolor="background.paper"
                     m={1}
                     p={1}
-                    style={{ width: '25rem', height: '23rem' }}
+                    style={{ width: '40%', height: '50%' }}
                     marginTop="85px"
+                    paddingBottom="3em"
                 >
                     <form className={classes.container} noValidate autoComplete="off" >
                         <p id='form-name-app'>facegram</p>

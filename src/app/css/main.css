@@ -46,6 +46,10 @@
     padding-top: 80px;
 }
 
+.detail_text {
+    margin-left: 20px
+}
+
 .first-row {
     display: flex;
 

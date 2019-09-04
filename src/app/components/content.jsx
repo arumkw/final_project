@@ -5,6 +5,7 @@ import '../css/main.css';
 import DetailContent from './detailContent';
 import ListsStory from './listsStory';
 import ListsSuggestions from './listsSuggestions';
+import { Redirect, Link} from 'react-router-dom';
 
 export default class Content extends React.Component {
     constructor(props){
@@ -46,6 +47,13 @@ export default class Content extends React.Component {
         this.fetching(newPage)
       }
 
+      insideAvatarFunction(e) {
+        e.stopPropagation();
+        console.log('Fired insideAvatarFunction()!');
+        return <Redirect to="/Profile"/>
+       
+      }
+
     render() {
         return (
             <div className = 'Content'>
@@ -60,9 +68,12 @@ export default class Content extends React.Component {
                 </section>
                 <section className='Section-Right'>
                   <div className='first-row'>
+                  {/* <div onClick={this.insideAvatarFunction}> */}
+                  <Link to='/Profile'>
                     <Avatar alt="Avatar" src='https://icon-icons.com/icons2/582/PNG/512/girl_icon-icons.com_55043.png' style={{width:60, height:60, marginRight:20}}/>
+                    </Link>{/* </div> */}
                     <div style={{height:'30px'}}>
-                      <p style={{marginBlockStart:'8px'}}><b>Orriku</b><br />Arum Kusuma Wardani</p>
+                      <p style={{marginBlockStart:'8px'}}> <Link to='/Profile' style={{textDecoration:'none'}}><b>Orriku</b></Link><br />Arum Kusuma Wardani</p>
                     </div>
                   </div>
                   <div className='second-row'>
@@ -72,7 +83,7 @@ export default class Content extends React.Component {
                         props_page_main={(e) => this.setThePage(e)}
                         currentpage={this.state.pageNow}
                         purpose="story"
-                    ></DetailContent>
+                  ></DetailContent>
                   <DetailContent 
                         props_list={this.state.propsan_bro}
                         result={this.state.result}

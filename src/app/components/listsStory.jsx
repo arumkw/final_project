@@ -32,35 +32,44 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ListStory() {
+export default function ListStory({maping}) {
   const classes = useStyles();
 
-  return (
-      <div className='listStory'>
-          <div className={classes.header}>
-            <h5>Stories<a href="https://www.instagram.com">Watch All</a></h5>           
-
-          </div>
-        <List className={classes.root}>
-        <ListItem>
-            <ListItemAvatar>
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
-            </ListItemAvatar>
-            <ListItemText primary={<b>yunaandco</b>} secondary="1 Day Ago" />
-        </ListItem>
-        <ListItem>
-            <ListItemAvatar>
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
-            </ListItemAvatar>
-            <ListItemText primary={<b>sararobert</b>} secondary="2 Days Ago" />
-        </ListItem>
-        <ListItem>
-            <ListItemAvatar>
-                <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />
-            </ListItemAvatar>
-            <ListItemText primary={<b>rashawl</b>} secondary="7 Days Ago" />
-        </ListItem>
-        </List>
-    </div>
-  );
+  if (maping.length === 0){
+    return (
+        <div className='loading'>
+            {/* <img className='loading-gif' src='https://kuis.football5star.com/images/ajax4.gif' alt=""/> */}
+            {/* <img className='loading-gif' src='https://media.giphy.com/media/l4pTovXEp3vC1YBvW/giphy.gif' alt=""/> */}
+            <h2> Please wait...</h2>
+        </div>
+    )
+} else {
+    return (
+        <div className='listStory'>
+            <div className={classes.header}>
+                <h5>Stories<a href="https://www.instagram.com">Watch All</a></h5>           
+            </div>
+            <List className={classes.root}>
+            <ListItem>
+                <ListItemAvatar>
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
+                </ListItemAvatar>
+                <ListItemText primary={<b>yunaandco</b>} secondary="1 Day Ago" />
+            </ListItem>
+            <ListItem>
+                <ListItemAvatar>
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />   
+                </ListItemAvatar>
+                <ListItemText primary={<b>sararobert</b>} secondary="2 Days Ago" />
+            </ListItem>
+            <ListItem>
+                <ListItemAvatar>
+                    <Avatar alt="Avatar" src="https://pre00.deviantart.net/714d/th/pre/i/2018/255/0/d/flat_face_design__1_by_scoolharis-dbip3p9.png" className={classes.avatar} />
+                </ListItemAvatar>
+                <ListItemText primary={<b>rashawl</b>} secondary="7 Days Ago" />
+            </ListItem>
+            </List>
+        </div>
+    );
+}
 }

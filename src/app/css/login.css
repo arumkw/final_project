@@ -35,4 +35,14 @@ img {
 }
 
 
+@media only screen and (max-width: 768px) {
+    .login-center img {
+        display:none;
+    }
+
+    #test {
+        background-color: aqua;
+    }
+}
+
 

@@ -36,11 +36,19 @@ const DetailContent = ({props_list,result,props_page_main, currentpage, purpose}
         )
     } else if (purpose === "story") {
         return (
-            <div><ListsStory /></div>
+            <div>
+                <ListsStory 
+                    maping={json_filter}
+                />
+            </div>
         )
     } else if (purpose === "suggestion") {
         return (
-            <div><ListsSuggestions /></div>
+            <div>
+                <ListsSuggestions
+                    maping={json_filter}
+                />
+            </div>
         )
     }
 }

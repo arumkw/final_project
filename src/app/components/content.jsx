@@ -70,7 +70,8 @@ export default class Content extends React.Component {
                   <div className='first-row'>
                   {/* <div onClick={this.insideAvatarFunction}> */}
                   <Link to='/Profile'>
-                    <Avatar alt="Avatar" src='https://icon-icons.com/icons2/582/PNG/512/girl_icon-icons.com_55043.png' style={{width:60, height:60, marginRight:20}}/>
+                    {/* <Avatar alt="Avatar" src='https://icon-icons.com/icons2/582/PNG/512/girl_icon-icons.com_55043.png' style={{width:60, height:60, marginRight:20}}/> */}
+                    <Avatar alt="Avatar" src='https://cdn.imgbin.com/5/16/1/imgbin-face-avatar-man-sunglasses-face-s-itjjzi0h9kxU6m2SB7nRHdvZS.jpg' style={{width:60, height:60, marginRight:20}}/>
                     </Link>{/* </div> */}
                     <div style={{height:'30px'}}>
                       <p style={{marginBlockStart:'8px'}}> <Link to='/Profile' style={{textDecoration:'none'}}><b>Orriku</b></Link><br />Arum Kusuma Wardani</p>

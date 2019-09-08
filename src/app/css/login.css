@@ -4,6 +4,7 @@ img {
 
 #buttonSignIn {
     text-decoration: none;
+    display: flex;
 }
 
 #form-name-app {

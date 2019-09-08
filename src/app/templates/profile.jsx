@@ -1,9 +1,10 @@
-import React from 'react';
+import React , { useState, useEffect } from 'react';
 import Header from '../components/header';
 import '../css/profile.css';
 import { Avatar, Link } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -14,6 +15,9 @@ import Box from '@material-ui/core/Box';
 
 import PropTypes from 'prop-types';
 
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+ 
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -29,10 +33,21 @@ const useStyles = makeStyles(theme => ({
         marginTop:50,
         backgroundColor: '#f2f6f5',
       },
+    root2: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+      },
+    gridList: {
+        width: 800,
+        height: 800,
+      },
   }));
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
+  
   
     return (
       <Typography
@@ -64,16 +79,40 @@ function Profile() {
     const linkaddr = 'inilinknya';
 
   const [value, setValue] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  const [data, setData] = useState([]);
+  
+  useEffect(async () => {
+    console.log(isLoading)
+    const result = await axios(
+      'https://my-json-server.typicode.com/arumkw/API_for_task/orriku',
+    );
+    setData(result.data);
+    setIsLoading(false);
+    console.log('ini adalah data')
+    console.log(data.length==='undefined')
+  }, []);
 
   function handleChange(event, newValue) {
     setValue(newValue);
   }
 
+  // const tileData = data;
+
+  if (isLoading) {
     return (
-        <div>
+      <div className='loading'>
+        <h2> Please wait...</h2>
+      </div>
+    )
+  } 
+  else {
+    return (
+        <div className='profilo'>
         <div className='profile'>
             <Avatar style={{width:215, height:215, margin:'122px 0px 0px 392px'}} alt="Avatar" src='https://www.cdkstone.com.au/wp-content/uploads/2018/01/Portsea-Grey.jpg'/>
-            <Avatar style={{width:200, height:200, margin:'130px 0px 0px 400px', position:'absolute'}} alt="Avatar" src='https://icon-icons.com/icons2/582/PNG/512/girl_icon-icons.com_55043.png'/>
+            <Avatar style={{width:200, height:200, margin:'130px 0px 0px 400px', position:'absolute'}} alt="Avatar" src='https://cdn.imgbin.com/5/16/1/imgbin-face-avatar-man-sunglasses-face-s-itjjzi0h9kxU6m2SB7nRHdvZS.jpg'/>
             <div className='text_detail'>
                 <div className='line_username'>
                     <p className='username'>Orriku</p>
@@ -91,37 +130,58 @@ function Profile() {
                 </div>
             </div>
         </div>
-        <div>
-                <Paper className={classes.root}>
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered
-                >
-                    <Tab label="Posts" >
-                        <div>
-                            ulalala
-                        </div>
-                    </Tab>
-                    <Tab label="Saved" />
-                    <Tab label="Tagged" />
-                </Tabs>
-                
-                </Paper>
-                <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-                </div>
-        </div>
+        <div class="profilo">
+          <Paper className={classes.root}>
+            <Tabs
+            value={value}
+            onChange={handleChange}
+            indicatorColor="primary"s
+            textColor="primary"
+            centered
+            >
+              <Tab label="Posts" />
+              <Tab label="Saved" />
+              <Tab label="Tagged" />
+            </Tabs>
+          </Paper>
+          <TabPanel value={value} index={0}>
+            <div className={classes.root2}>
+              <GridList cellHeight={200} className={classes.gridList} cols={3}>
+                {data.map(tile => (
+                  <GridListTile key={tile.img} cols={tile.cols || 1}>
+                    <img src={tile.img} alt={tile.title} />
+                  </GridListTile>
+                ))}
+              </GridList>
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+          <div className={classes.root2}>
+              <GridList cellHeight={200} className={classes.gridList} cols={3}>
+                {data.map(tile => (
+                  <GridListTile key={tile.img} cols={tile.cols || 1}>
+                    <img src={tile.img} alt={tile.title} />
+                  </GridListTile>
+                ))}
+              </GridList>
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+          <div className={classes.root2}>
+              <GridList cellHeight={200} className={classes.gridList} cols={3}>
+                {data.map(tile => (
+                  <GridListTile key={tile.img} cols={tile.cols || 1}>
+                    <img src={tile.img} alt={tile.title} />
+                  </GridListTile>
+                ))}
+              </GridList>
+            </div>
+          </TabPanel>
+          </div>
+          </div>
     )
+                }
+                
 }
 
 export default Profile;

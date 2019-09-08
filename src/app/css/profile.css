@@ -1,3 +1,8 @@
+
+
+.profilo{
+    background-color: #fefefe;
+}
 .big_avatar {
     width: 200;
     height: 200;
@@ -12,6 +17,7 @@
 
 .profile {
     display:flex;
+    background-color: #fefefe;
 }
 
 .text_detail {

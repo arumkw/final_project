@@ -52,8 +52,8 @@ export default function Login ({kirimloggedIn}) {
     };
 
     const signin = () => {
-        if (values.username === 'a') {
-            if (values.password === 'a') {
+        if (values.username === 'test') {
+            if (values.password === 'test') {
                 kirimloggedIn(true)
             } else {
                 alert('Your password is incorect');
